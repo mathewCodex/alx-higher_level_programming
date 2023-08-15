@@ -1,11 +1,11 @@
 #include "lists.h"
 
 /**
-* reverse_listint - reverse a linked list
-* @head: ptr to the first node in the linked list
-* Return: ptr to the first node in the new list
-*/
-
+ * reverse_listint - reverses a linked list
+ * @head: pointer to the first node in the list
+ *
+ * Return: pointer to the first node in the new list
+ */
 void reverse_listint(listint_t **head)
 {
 	listint_t *prev = NULL;
@@ -22,11 +22,13 @@ void reverse_listint(listint_t **head)
 
 	*head = prev;
 }
+
 /**
-* is_palindrome - checks if a linked list is a palindrome
-* @head: double ptr to the linked list
-* Return: 1if it is, 0 if none
-*/
+ * is_palindrome - checks if a linked list is a palindrome
+ * @head: double pointer to the linked list
+ *
+ * Return: 1 if it is, 0 if not
+ */
 int is_palindrome(listint_t **head)
 {
 	listint_t *slow = *head, *fast = *head, *temp = *head, *dup = NULL;
@@ -54,7 +56,7 @@ int is_palindrome(listint_t **head)
 
 	while (dup && temp)
 	{
-		if (temp-n == dup->n)
+		if (temp->n == dup->n)
 		{
 			dup = dup->next;
 			temp = temp->next;
@@ -65,5 +67,6 @@ int is_palindrome(listint_t **head)
 
 	if (!dup)
 		return (1);
+
 	return (0);
 }
