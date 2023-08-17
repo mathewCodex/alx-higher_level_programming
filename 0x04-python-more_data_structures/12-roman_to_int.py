@@ -5,7 +5,7 @@ def to_substract(list_num):
 
     for n in list_num:
         if max_list > n:
-            to_sub = to_sub + n
+            to_sub += n
 
     return (max_list - to_sub)
 
