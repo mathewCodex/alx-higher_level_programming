@@ -3,18 +3,19 @@
 """Define a class sqr."""
 
 class Square:
-    """rep a square"""
-    def __init__(self, size=0):
-        """init a new sqr
+    """Rep a Sqr"""
+
+    def __int__(self, size=0):
+        """Init a new Sqr
         Args:
-            size (int): The size of new sqr
+            size (int): The size of the new sqr
         """
         if not isinstance(size, int):
-            raise TypeError("Size must be an int")
+            raise TypeError("size must be an integer")
         elif size < 0:
-            raise ValueError("size must be >= 0")
+            raise ValueError("Size must be >= 0")
         self.__size = size
 
     def area(self):
-        """return the cur area of sqr"""
+        """Return the current area of sqr"""
         return (self.__size * self.__size)
