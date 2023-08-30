@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 
-"""Define a class sqr"""
-
 class Square:
+    """clas of name sqr"""
+
     def __init__(self, size=0, position=(0, 0)):
-        """Initialize a new square
+        """Initialize a new sqr
         Args:
-            size (int): the size ofsqr
-            position (int, int): the pos of new sqr
+            size (int): The size of the new sqr
+            position (int, int): The pos of the new square
         """
         self.size = size
         self.position = position
@@ -27,7 +27,7 @@ class Square:
 
     @property
     def position(self):
-        """Get/set the curre pos of the sqr"""
+        """Get/set the current pos of the sqr"""
         return (self.__position)
 
     @position.setter
@@ -36,15 +36,14 @@ class Square:
                 len(value) != 2 or
                 not all(isinstance(num, int) for num in value) or
                 not all(num >= 0 for num in value)):
-            raise TypeError("Position must be a tuple of 2 positive integers")
+            raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
-
     def area(self):
-        """Return the current area of the sqr"""
+        """Return the current area of the square"""
         return (self.__size * self.__size)
 
     def my_print(self):
-        """Print the square with the # character"""
+        """Print the square with # character"""
         if self.__size == 0:
             print("")
             return
@@ -54,3 +53,14 @@ class Square:
             [print(" ", end="") for j in range(0, self.__position[0])]
             [print("#", end="") for k in range(0, self.__size)]
             print("")
+
+    def __str__(self):
+        """define the print() rep of a Sqr"""
+        if self.__size != 0:
+            [print("") for i in range(0, self.__position[1])]
+        for i in range(0, self.__size):
+            [print(" ", end="") for j in range(0, self.__position[0])]
+            [print("#", end="") for k in range(0, self.__size)]
+            if i != self.__size - 1:
+                print("")
+        return ("")
