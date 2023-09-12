@@ -2,6 +2,7 @@
 """Def a base geometry class BaseGeometry"""
 
 
+
 class BaseGeometry:
     """Rep base geometry"""
 

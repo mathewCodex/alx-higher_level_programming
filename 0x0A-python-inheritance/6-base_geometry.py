@@ -2,6 +2,7 @@
 """public instance method"""
 
 
+
 class BaseGeometry:
     """pub instance method"""
     def area(self):
