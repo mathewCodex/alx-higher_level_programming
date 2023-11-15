@@ -1,11 +1,15 @@
 #!/usr/bin/node
 
-const { argv } = require('process');
-const size = parseInt(argv[2]);
-
-const printSqr = (size) => {
-	const row = 'X'.repeat(size);
-	for (let i = 0; i < size; i++)
-		console.log(row);
-};
-Number.isInteger(size) ? printSqr(size) : console.log('Missing size');
+const myArgs = process.argv.slice(2);
+let i, j;
+if (isNaN(myArgs[0])) {
+  console.log('Missing size');
+} else {
+  for (i = 0; i < parseInt(myArgs[0]); i++) {
+    let row = '';
+    for (j = 0; j < parseInt(myArgs[0]); j++) {
+      row += 'X';
+    }
+    console.log(row);
+  }
+}
