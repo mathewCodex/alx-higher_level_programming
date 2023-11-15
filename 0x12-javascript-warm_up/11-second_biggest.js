@@ -3,7 +3,7 @@
 const { argv } require('process');
 const args = argv.slice(2);
 let result = 0;
-let finalArray = [];
+let finalArr = [];
 
 if (args.length > 1)
 {
