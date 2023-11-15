@@ -1,12 +1,13 @@
 #!/usr/bin/node
 
-const { argv } = require('process');
-
+const myArgs = process.argv.slice(2);
 function factorial (num) {
-	if (num <= 1) return (1);
-
-	return (factorial(num - 1) * num);
+	if (isNaN(myArgs[0])) {
+		return 1;
+	}
+	if (num <= 1) {
+		return 1;
+	}
+	return num * factorial(num - 1);
 }
-
-const parsed = parsedInt(argv[2]);
-console.log(Number.isNaN(parsed) ? 1 : factorial(parsed));
+console.log(factorial(parseInt(myArgs[0])));

@@ -1,17 +1,17 @@
 #!/usr/bin/node
 
-const myObj = {
+const myObject = {
 	type: 'Object',
 	value: 12
 };
 
-console.log(myObj);
+console.log(myObject);
 
-myObj.incr = () => myObj.value++;
+myObject.incr = () => myObject.value++;
 
-myObj.incr();
-console.log(myObj);
-myObj.incr();
-console.log(myObj);
-myObj.incr();
-console.log(myObj);
+myObject.incr();
+console.log(myObject);
+myObject.incr();
+console.log(myObject);
+myObject.incr();
+console.log(myObject);

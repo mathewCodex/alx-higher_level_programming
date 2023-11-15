@@ -1,5 +1,10 @@
 #!/usr/bin/node
 
-const msg = ['C is fun', 'Python is cool', 'Javascript is amazing'];
+const msg = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
 
-msg.forEach((element) => console.log(element));
+const msgLen = msg.length;
+let i = 0;
+while (i < msgLen){
+	console.log(msgLen[i]);
+	i++;
+}
