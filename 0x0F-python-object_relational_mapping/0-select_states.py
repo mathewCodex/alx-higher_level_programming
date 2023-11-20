@@ -3,7 +3,7 @@
 
 if __name__ == '__main__':
     from sys import argv
-    import MYSQLdb as mysql
+    import MySQLdb as mysql
 
     try:
         conndb = mysql.connect(host='localhost', port=3306, user=argv[1],
