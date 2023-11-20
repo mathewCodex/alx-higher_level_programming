@@ -30,7 +30,7 @@ if __name__ = '__main__':
 
     cursor = connDB.cursor()
 
-    cuantity = cursor.execute("""SELECT c.name FROM cities as c
+    req = cursor.execute("""SELECT c.name FROM cities as c
                       INNER JOIN states as s
                       ON c.state_id = s.id
                       WHERE s.name = '{:s}'
@@ -40,7 +40,7 @@ if __name__ = '__main__':
 
     final = []
 
-    for i in range(cuantity):
+    for i in range(req):
         final.append(result_query[i][0])
 
     print(', '.join(final))

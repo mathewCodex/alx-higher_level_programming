@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 """A function that takes in arg and displays all
 Vals in the states where name match the arg.
 But safe from MySQl injection
@@ -24,7 +26,7 @@ if __name__ == '__main__':
 
     cur = connDB.cursor()
 
-    cur.execute("SELECT * FROM state \
+    cur.execute("SELECT * FROM states \
                 WHERE name = '{:s}' ORDER BY ASC;".format(' '.join(argv[4].split()))
 
     query_res = cur.fetchall()

@@ -27,10 +27,10 @@ if __name__ = '__main__':
                     ON c.states_id = s.id
                     ORDER BY c.id ASC;""")
 
-    query_res = cursor.fetchall()
+    query_res = cur.fetchall()
 
     for row in query_res:
         print(row)
 
-    cursor.close()
+    cur.close()
     connDB.close()
