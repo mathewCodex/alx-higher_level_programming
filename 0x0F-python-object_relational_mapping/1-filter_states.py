@@ -1,7 +1,8 @@
 #!/usr/bin/python3
+
 """
-Lists of all states with name starting
-with N (upper N) from the DB hbtn---
+List all states with name starting with
+N from the db hbtn_0e_0_usa
 """
 
 if __name__ == '__main__':
@@ -9,22 +10,21 @@ if __name__ == '__main__':
     import MySQLdb as mysql
 
     try:
-        connDB = mysql.connect(host='localhost', port=3306, user=argv[1],
-                                passwd=argv[2], db=argv[3])
-
+        conndb = mysql.connect(host='localhost', port=3306, user=argv[1],
+                           passwd=argv[2], db=argv[3])
     except Exception:
-        print('Failed to connect to Database')
+        print('Failed to connect to the database')
         exit(0)
 
-    cursor = connDB.cursor()
+    cursor = conndb.cursor()
 
     cursor.execute("SELECT * FROM states \
-                    WHERE name LIKE 'N%' ORDER BY id ASC;")
+                    WHERE name LIKE BINARY 'N%' ORDER BY id ASC;")
 
-    query_res = cursor.fetchall()
+    result_query = cursor.fetchall()
 
-    for row in query_res:
+    for row in result_query:
         print(row)
 
     cursor.close()
-    connDB.close()
+    conndb.close()
