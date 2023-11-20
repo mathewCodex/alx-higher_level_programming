@@ -7,19 +7,19 @@ if __name__ == '__main__':
 
     try:
         conndb = mysql.connect(host='localhost', port=3306, user=argv[1],
-                passwd=argv[2], db=argv[3])
+                           passwd=argv[2], db=argv[3])
     except Exception:
-        print('Failed to connect to DB')
+        print('Failed to connect to the database')
         exit(0)
 
     cursor = conndb.cursor()
 
     cursor.execute("SELECT * FROM states ORDER BY id ASC;")
 
-    result_query = cursor.fetchall()
+    query_res = cursor.fetchall()
 
-    for row in result_query:
+    for row in query_res:
         print(row)
 
     cursor.close()
-    db.close()
+    conndb.close()
