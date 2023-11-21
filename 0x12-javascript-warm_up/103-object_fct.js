@@ -4,6 +4,7 @@ const myObj = {
 	type: 'Object',
 	value: 12
 };
+//juytr
 
 console.log(myObj);
 
