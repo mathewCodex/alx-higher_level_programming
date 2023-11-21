@@ -5,45 +5,21 @@ Takes in the name of all sattes as args
 and list all fron the db
 """
 
-if __name__ = '__main__':
-    from sys import argv
+if __name__ == '__main__':
     import MySQLdb as mysql
+    from sys import argv
 
-    import re
-
-    if (len(argv) != 5):
-        print('Use: username, password, database name, state name')
-        exit(1)
-
-    state_name = ' '.join(argv[4].split())
-
-    if (re.search('^[a-zA-Z ]+$', state_name) is None):
-        print('Enter a valid name state (example: California)')
-        exit(1)
-
-    try:
-        connDB = mysql.connect(host='localhost', port=3306, user=argv[1],
-                           passwd=argv[2], db=argv[3])
-    except Exception:
-        print('Failed to connect to the database')
-        exit(0)
-
-    cursor = connDB.cursor()
-
-    req = cursor.execute("""SELECT c.name FROM cities as c
-                      INNER JOIN states as s
-                      ON c.state_id = s.id
-                      WHERE s.name = '{:s}'
-                      ORDER BY c.id ASC;""".format(state_name))
-
-    result_query = cursor.fetchall()
-
-    final = []
-
-    for i in range(req):
-        final.append(result_query[i][0])
-
-    print(', '.join(final))
-
-    cursor.close()
-    conndb.close()
+    connDB = mysql.connect(host='localhost', port=3306, user=argv[1],
+            passwd=argv[2], db=argv[3], charset="utf8")
+    cur = connDB.cursor()
+    cur.execute(
+            "SELECT cities.name FROM cities JOIN states ON \
+                    cities.state_id = states.id WHERE states.name = %s",
+                    (sys.argv[4]))
+    row_query = cur.fetchall()
+    all_lists = []
+    for row in row_query:
+        all_list.append(",".join(str(x) for x in row))
+    print(all_lists, sep=", ")
+    cur.close()
+    connDB.close()
