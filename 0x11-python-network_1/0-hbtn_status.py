@@ -1,14 +1,10 @@
 #!usr/bin/python3
-"""Fetches a url"""
+"""Fetches a url using urllib package
+"""
 import urllib.request
-
-
-
-if __name__ == "__main__":
-    req = urllib.request.Request("https://alx-intranet.hbtn.io/status")
-    with urllib.request.urlopen(request) as res:
-        body = res.read()
-        print("Body Response:")
-        print("\t- type: {}".format(type(body)))
-        print("\t- content: {}".format(body))
-        print("\t- utf8 content: {}".format(body.decode("utf-8)))
+with urllib.request.urlopen("https://intranet.hbtn.io/status") as res:
+    data = res.read()
+    print("Body response:")
+    print("	- type:", type(data))
+    print("     - content:", data)
+    print("     - utf8 content:", data.decode('utf-8'))
