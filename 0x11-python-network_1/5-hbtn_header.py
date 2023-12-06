@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Dis the X-re-id header var of a req"""
+"""Displays the X-requset-Id header var of a request"""
 import sys
 import requests
 
